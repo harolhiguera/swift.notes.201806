@@ -103,15 +103,14 @@
 		CE55478C215E781200F6A281 /* SwiftPlaygrounds */ = {
 			isa = PBXGroup;
 			children = (
-				CE5547C0215E78A100F6A281 /* extensions */,
-				CE5547BD215E788B00F6A281 /* utils */,
 				CE55478D215E781200F6A281 /* AppDelegate.swift */,
-				CE55478F215E781200F6A281 /* ViewController.swift */,
-				CE554791215E781200F6A281 /* Main.storyboard */,
-				CE554794215E781400F6A281 /* Assets.xcassets */,
-				CE554796215E781400F6A281 /* LaunchScreen.storyboard */,
-				CE554799215E781400F6A281 /* Info.plist */,
-				CE5547BB215E785200F6A281 /* credentials.plist */,
+				CE5547BD215E788B00F6A281 /* utils */,
+				CE5547C0215E78A100F6A281 /* extensions */,
+				CE5547C4215E7F3800F6A281 /* view */,
+				CE5547C7215E802C00F6A281 /* customView */,
+				CE5547C3215E7F1400F6A281 /* controllers */,
+				CE5547C5215E7F5400F6A281 /* supportFiles */,
+				CE5547C6215E7FF900F6A281 /* resources */,
 			);
 			path = SwiftPlaygrounds;
 			sourceTree = "<group>";
@@ -148,6 +147,47 @@
 				CE5547C1215E78DE00F6A281 /* String+Extension.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		CE5547C3215E7F1400F6A281 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE55478F215E781200F6A281 /* ViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		CE5547C4215E7F3800F6A281 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CE554791215E781200F6A281 /* Main.storyboard */,
+				CE554796215E781400F6A281 /* LaunchScreen.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		CE5547C5215E7F5400F6A281 /* supportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CE554799215E781400F6A281 /* Info.plist */,
+				CE5547BB215E785200F6A281 /* credentials.plist */,
+			);
+			path = supportFiles;
+			sourceTree = "<group>";
+		};
+		CE5547C6215E7FF900F6A281 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE554794215E781400F6A281 /* Assets.xcassets */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		CE5547C7215E802C00F6A281 /* customView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = customView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
