@@ -169,8 +169,8 @@
 		CE5547C3215E7F1400F6A281 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE5547E4215F85A400F6A281 /* Home */,
-				CE5547CA215F513000F6A281 /* MVVMTableBinding */,
+				CE5547E4215F85A400F6A281 /* home */,
+				CE5547CA215F513000F6A281 /* MVVMSimpleTableBinding */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -209,24 +209,24 @@
 			path = customView;
 			sourceTree = "<group>";
 		};
-		CE5547CA215F513000F6A281 /* MVVMTableBinding */ = {
+		CE5547CA215F513000F6A281 /* MVVMSimpleTableBinding */ = {
 			isa = PBXGroup;
 			children = (
 				CE5547CB215F51B900F6A281 /* BristolViewController.swift */,
 				CE5547CC215F51B900F6A281 /* BristolViewController.xib */,
 				CE5547E2215F84CD00F6A281 /* BristolViewModel.swift */,
 			);
-			path = MVVMTableBinding;
+			path = MVVMSimpleTableBinding;
 			sourceTree = "<group>";
 		};
-		CE5547E4215F85A400F6A281 /* Home */ = {
+		CE5547E4215F85A400F6A281 /* home */ = {
 			isa = PBXGroup;
 			children = (
 				CE55478F215E781200F6A281 /* HomeViewController.swift */,
 				CE5547D1215F56AD00F6A281 /* HomeTableViewCell.swift */,
 				CE5547D2215F56AD00F6A281 /* HomeTableViewCell.xib */,
 			);
-			path = Home;
+			path = home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
