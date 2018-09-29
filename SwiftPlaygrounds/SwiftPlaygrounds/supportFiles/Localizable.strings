@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SwiftPlaygrounds
+
+  Created by Harol Higuera on 2018/09/29.
+  Copyright © 2018 Somanyideaz. All rights reserved.
+*/
+
+"task.01.title"="MVVM simple tableView binding";
+"task.01.description"="This is a MVVM simple tableView binding, This is a MVVM simple tableView binding";

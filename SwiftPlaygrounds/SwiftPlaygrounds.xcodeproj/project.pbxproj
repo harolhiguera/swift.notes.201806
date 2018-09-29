@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE55478E215E781200F6A281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55478D215E781200F6A281 /* AppDelegate.swift */; };
-		CE554790215E781200F6A281 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55478F215E781200F6A281 /* ViewController.swift */; };
+		CE554790215E781200F6A281 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55478F215E781200F6A281 /* HomeViewController.swift */; };
 		CE554793215E781200F6A281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE554791215E781200F6A281 /* Main.storyboard */; };
 		CE554795215E781400F6A281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE554794215E781400F6A281 /* Assets.xcassets */; };
 		CE554798215E781400F6A281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE554796215E781400F6A281 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,13 @@
 		CE5547BC215E785200F6A281 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5547BB215E785200F6A281 /* credentials.plist */; };
 		CE5547BF215E789900F6A281 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547BE215E789900F6A281 /* Global.swift */; };
 		CE5547C2215E78DE00F6A281 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547C1215E78DE00F6A281 /* String+Extension.swift */; };
+		CE5547CD215F51B900F6A281 /* BristolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547CB215F51B900F6A281 /* BristolViewController.swift */; };
+		CE5547CE215F51B900F6A281 /* BristolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5547CC215F51B900F6A281 /* BristolViewController.xib */; };
+		CE5547D3215F56AD00F6A281 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547D1215F56AD00F6A281 /* HomeTableViewCell.swift */; };
+		CE5547D4215F56AD00F6A281 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5547D2215F56AD00F6A281 /* HomeTableViewCell.xib */; };
+		CE5547DB215F782C00F6A281 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE5547DA215F782C00F6A281 /* Localizable.strings */; };
+		CE5547DF215F7B7400F6A281 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547DE215F7B7400F6A281 /* ViewController+Extension.swift */; };
+		CE5547E3215F84CD00F6A281 /* BristolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547E2215F84CD00F6A281 /* BristolViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,7 @@
 /* Begin PBXFileReference section */
 		CE55478A215E781200F6A281 /* SwiftPlaygrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPlaygrounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE55478D215E781200F6A281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE55478F215E781200F6A281 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE55478F215E781200F6A281 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE554792215E781200F6A281 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE554794215E781400F6A281 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE554797215E781400F6A281 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +60,15 @@
 		CE5547BB215E785200F6A281 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		CE5547BE215E789900F6A281 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CE5547C1215E78DE00F6A281 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CE5547CB215F51B900F6A281 /* BristolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BristolViewController.swift; sourceTree = "<group>"; };
+		CE5547CC215F51B900F6A281 /* BristolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BristolViewController.xib; sourceTree = "<group>"; };
+		CE5547D1215F56AD00F6A281 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CE5547D2215F56AD00F6A281 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		CE5547DA215F782C00F6A281 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE5547DC215F784300F6A281 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		CE5547DD215F784300F6A281 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE5547DE215F7B7400F6A281 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		CE5547E2215F84CD00F6A281 /* BristolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BristolViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5547C1215E78DE00F6A281 /* String+Extension.swift */,
+				CE5547DE215F7B7400F6A281 /* ViewController+Extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -152,7 +169,8 @@
 		CE5547C3215E7F1400F6A281 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE55478F215E781200F6A281 /* ViewController.swift */,
+				CE5547E4215F85A400F6A281 /* Home */,
+				CE5547CA215F513000F6A281 /* MVVMTableBinding */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -171,6 +189,7 @@
 			children = (
 				CE554799215E781400F6A281 /* Info.plist */,
 				CE5547BB215E785200F6A281 /* credentials.plist */,
+				CE5547DA215F782C00F6A281 /* Localizable.strings */,
 			);
 			path = supportFiles;
 			sourceTree = "<group>";
@@ -188,6 +207,26 @@
 			children = (
 			);
 			path = customView;
+			sourceTree = "<group>";
+		};
+		CE5547CA215F513000F6A281 /* MVVMTableBinding */ = {
+			isa = PBXGroup;
+			children = (
+				CE5547CB215F51B900F6A281 /* BristolViewController.swift */,
+				CE5547CC215F51B900F6A281 /* BristolViewController.xib */,
+				CE5547E2215F84CD00F6A281 /* BristolViewModel.swift */,
+			);
+			path = MVVMTableBinding;
+			sourceTree = "<group>";
+		};
+		CE5547E4215F85A400F6A281 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE55478F215E781200F6A281 /* HomeViewController.swift */,
+				CE5547D1215F56AD00F6A281 /* HomeTableViewCell.swift */,
+				CE5547D2215F56AD00F6A281 /* HomeTableViewCell.xib */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +313,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = CE554781215E781200F6A281;
@@ -294,8 +332,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5547CE215F51B900F6A281 /* BristolViewController.xib in Resources */,
 				CE554798215E781400F6A281 /* LaunchScreen.storyboard in Resources */,
 				CE5547BC215E785200F6A281 /* credentials.plist in Resources */,
+				CE5547DB215F782C00F6A281 /* Localizable.strings in Resources */,
+				CE5547D4215F56AD00F6A281 /* HomeTableViewCell.xib in Resources */,
 				CE554795215E781400F6A281 /* Assets.xcassets in Resources */,
 				CE554793215E781200F6A281 /* Main.storyboard in Resources */,
 			);
@@ -322,9 +363,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5547DF215F7B7400F6A281 /* ViewController+Extension.swift in Sources */,
+				CE5547E3215F84CD00F6A281 /* BristolViewModel.swift in Sources */,
 				CE5547C2215E78DE00F6A281 /* String+Extension.swift in Sources */,
-				CE554790215E781200F6A281 /* ViewController.swift in Sources */,
+				CE554790215E781200F6A281 /* HomeViewController.swift in Sources */,
 				CE55478E215E781200F6A281 /* AppDelegate.swift in Sources */,
+				CE5547D3215F56AD00F6A281 /* HomeTableViewCell.swift in Sources */,
+				CE5547CD215F51B900F6A281 /* BristolViewController.swift in Sources */,
 				CE5547BF215E789900F6A281 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +410,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE554792215E781200F6A281 /* Base */,
+				CE5547DC215F784300F6A281 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -373,6 +419,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE554797215E781400F6A281 /* Base */,
+				CE5547DD215F784300F6A281 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -502,7 +549,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZJHK7UHBSM;
-				INFOPLIST_FILE = SwiftPlaygrounds/Info.plist;
+				INFOPLIST_FILE = SwiftPlaygrounds/supportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZJHK7UHBSM;
-				INFOPLIST_FILE = SwiftPlaygrounds/Info.plist;
+				INFOPLIST_FILE = SwiftPlaygrounds/supportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

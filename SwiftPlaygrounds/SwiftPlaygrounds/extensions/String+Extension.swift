@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 extension String {
     
@@ -23,5 +23,36 @@ extension String {
         }
     }
     
+    //  Get Localizable string
+    func getLocalizable() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
     
+    
+    // Estimated Size
+    func estimateFrame(fontSize: CGFloat, width: CGFloat) -> CGRect {
+        let size = CGSize(width: width, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        return NSString(string: self).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], context: nil)
+    }
+    
+    
+    // Estimated Size
+    func estimateFrame(font: UIFont, width: CGFloat, lineSpacing: CGFloat, letterSpacing: CGFloat) -> CGRect {
+        
+        let size = CGSize(width: width, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        
+        let attrs = [
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            .kern: letterSpacing
+            ] as [NSAttributedString.Key : Any]
+        
+        return NSString(string: self).boundingRect(with: size, options: options, attributes: attrs, context: nil)
+        
+    }
 }

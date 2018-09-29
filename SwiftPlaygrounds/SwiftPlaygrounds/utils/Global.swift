@@ -14,5 +14,6 @@ struct Global {
     static func getApiKey() -> String {
         return "ApiKey".getValueFromPlist()
     }
+ 
     
 }
