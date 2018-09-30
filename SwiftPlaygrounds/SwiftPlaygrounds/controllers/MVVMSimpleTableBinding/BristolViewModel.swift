@@ -8,40 +8,71 @@
 
 import Foundation
 
-// Presenter
-protocol TodoItemPresentable {
+// Data Items
+protocol BristolItemPresentable {
     var textValue: String? { get }
     var id: String? { get }
 }
 
-struct TodoItemViewModel: TodoItemPresentable {
+struct BristolItemViewModel: BristolItemPresentable {
     var textValue: String?
     var id: String? = "0"
 }
 
-// Actions that come towoards the View Controller
-protocol TodoItemViewDelegate {
-    func onTodoItemAdded() -> ()
+protocol BristolItemViewModelDelegate {
+    func onBristolItemSelected()
+}
+
+extension BristolItemViewModel: BristolItemViewModelDelegate {
+    func onBristolItemSelected() {
+        print("Item with id: \(id!) has been selected!!")
+    }
 }
 
 
-struct TodoViewModel: TodoItemViewDelegate {
+
+
+
+
+
+
+
+
+
+
+
+protocol BristolViewDelegate {
+    func onAddItem()
+}
+protocol BristolViewModelProtocol: class {
+    func reloadTableView()
+}
+
+
+class BristolViewModel {
+    weak var delegate: BristolViewModelProtocol?
+    var newBristolItem: String?
+    var items:[BristolItemPresentable] = []
     
-    var newTodoItem: String?
-    var items:[TodoItemPresentable] = []
-    
-    init() {
-        let item1 = TodoItemViewModel(textValue: "Washing socks on Sunday", id: "1")
-        let item2 = TodoItemViewModel(textValue: "Walking on a Dream", id: "2")
-        let item3 = TodoItemViewModel(textValue: "Going abroad", id: "3")
+    init(delegate: BristolViewModelProtocol) {
+        self.delegate = delegate
+        let item1 = BristolItemViewModel(textValue: "Washing socks on Sunday", id: "1")
+        let item2 = BristolItemViewModel(textValue: "Walking on a Dream", id: "2")
+        let item3 = BristolItemViewModel(textValue: "Going abroad", id: "3")
         
         items.append(contentsOf: [item1, item2, item3])
     }
-    
-    
-    
-    
-    func onTodoItemAdded() {
-        
+}
+
+
+
+extension BristolViewModel: BristolViewDelegate {
+    func onAddItem() {
+        guard let newValue = newBristolItem else{ return }
+        print("New Bristol Value received in View Model: \(newValue)")
+        let newItem = BristolItemViewModel(textValue: newValue, id: "\(items.count + 1)")
+        self.items.append(newItem)
+        self.newBristolItem = ""
+        self.delegate?.reloadTableView()
     }
 }

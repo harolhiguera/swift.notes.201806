@@ -24,6 +24,8 @@
 		CE5547DB215F782C00F6A281 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE5547DA215F782C00F6A281 /* Localizable.strings */; };
 		CE5547DF215F7B7400F6A281 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547DE215F7B7400F6A281 /* ViewController+Extension.swift */; };
 		CE5547E3215F84CD00F6A281 /* BristolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547E2215F84CD00F6A281 /* BristolViewModel.swift */; };
+		CE5547E7215F881100F6A281 /* BristolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5547E5215F881100F6A281 /* BristolTableViewCell.swift */; };
+		CE5547E8215F881100F6A281 /* BristolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5547E6215F881100F6A281 /* BristolTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		CE5547DD215F784300F6A281 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE5547DE215F7B7400F6A281 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		CE5547E2215F84CD00F6A281 /* BristolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BristolViewModel.swift; sourceTree = "<group>"; };
+		CE5547E5215F881100F6A281 /* BristolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BristolTableViewCell.swift; sourceTree = "<group>"; };
+		CE5547E6215F881100F6A281 /* BristolTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BristolTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,8 @@
 				CE5547CB215F51B900F6A281 /* BristolViewController.swift */,
 				CE5547CC215F51B900F6A281 /* BristolViewController.xib */,
 				CE5547E2215F84CD00F6A281 /* BristolViewModel.swift */,
+				CE5547E5215F881100F6A281 /* BristolTableViewCell.swift */,
+				CE5547E6215F881100F6A281 /* BristolTableViewCell.xib */,
 			);
 			path = MVVMSimpleTableBinding;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				CE5547CE215F51B900F6A281 /* BristolViewController.xib in Resources */,
 				CE554798215E781400F6A281 /* LaunchScreen.storyboard in Resources */,
 				CE5547BC215E785200F6A281 /* credentials.plist in Resources */,
+				CE5547E8215F881100F6A281 /* BristolTableViewCell.xib in Resources */,
 				CE5547DB215F782C00F6A281 /* Localizable.strings in Resources */,
 				CE5547D4215F56AD00F6A281 /* HomeTableViewCell.xib in Resources */,
 				CE554795215E781400F6A281 /* Assets.xcassets in Resources */,
@@ -369,6 +376,7 @@
 				CE554790215E781200F6A281 /* HomeViewController.swift in Sources */,
 				CE55478E215E781200F6A281 /* AppDelegate.swift in Sources */,
 				CE5547D3215F56AD00F6A281 /* HomeTableViewCell.swift in Sources */,
+				CE5547E7215F881100F6A281 /* BristolTableViewCell.swift in Sources */,
 				CE5547CD215F51B900F6A281 /* BristolViewController.swift in Sources */,
 				CE5547BF215E789900F6A281 /* Global.swift in Sources */,
 			);
