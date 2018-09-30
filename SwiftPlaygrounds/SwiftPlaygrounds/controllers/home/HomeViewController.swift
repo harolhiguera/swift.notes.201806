@@ -10,11 +10,16 @@ import UIKit
 
 
 struct ProjectTasks {
+    var number: Int
     var title: String
     var description: String
 }
 
 class HomeViewController: UIViewController {
+    
+    lazy var bristolViewController: BristolViewController = { return BristolViewController(nibName: "BristolViewController", bundle: nil) }()
+    lazy var loginViewController: LoginViewController = { return LoginViewController(nibName: "LoginViewController", bundle: nil) }()
+    
     
     var tasks = [ProjectTasks]()
     
@@ -25,8 +30,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         tasks.append(contentsOf: [
-            ProjectTasks(title: "task.01.title".getLocalizable(), description: "task.01.description".getLocalizable()),
-            ProjectTasks(title: "task.01.title".getLocalizable(), description: "task.01.description".getLocalizable())
+            ProjectTasks(number: 0, title: "task.01.title".getLocalizable(), description: "task.01.description".getLocalizable()),
+            ProjectTasks(number: 1, title: "task.02.title".getLocalizable(), description: "task.02.description".getLocalizable())
         ])
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         tableView.delegate = self
@@ -37,6 +42,15 @@ class HomeViewController: UIViewController {
         
     }
 
+    func getViewController(index: Int) -> UIViewController {
+        switch index {
+        case 0:
+            return self.bristolViewController
+        default:
+            return self.loginViewController
+        }
+    }
+    
 }
 
 
@@ -49,11 +63,12 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: false)
-        
-        let vc = BristolViewController(nibName: "BristolViewController", bundle: nil)
+        let vc = getViewController(index: indexPath.row)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+
 
 
 

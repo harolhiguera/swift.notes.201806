@@ -78,7 +78,7 @@ extension BristolViewController: UITableViewDelegate {
         _ = item?.menuItems?.map({ menuItem in
             let menuAction = UIContextualAction(style: .normal, title: menuItem.title!) { (contextAction, view, success: (Bool) -> (Void)) in
                 
-                if let delegate = menuItem as? BristolMenuItemViewModelDelegate {
+                if let delegate = menuItem as? BristolMenuItemViewDelegate {
                     // ******** BACKGROUND THREAD *******
                     DispatchQueue.global(qos: .background).async {
                         delegate.onMenuItemSelected()

@@ -7,4 +7,7 @@
 */
 
 "task.01.title"="MVVM simple tableView binding";
-"task.01.description"="This is a MVVM simple tableView binding, This is a MVVM simple tableView binding";
+"task.01.description"="This is a MVVM simple tableView binding. This example uses delegation in order to manipulate cells in a table view.";
+
+"task.02.title"="MVVM simple Login View";
+"task.02.description"="Login Validation by using RxSwift, Rx Cocoa and MVVM";
