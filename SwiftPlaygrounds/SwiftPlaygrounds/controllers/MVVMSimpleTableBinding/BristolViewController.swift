@@ -15,9 +15,10 @@ import UIKit
 
 
 
-protocol BristolViewDelegate {
+protocol BristolViewDelegate: class {
     func onAddItem() // An Item has been added to this view, let's tell the ViewModel
     func onDeleteItem(id: String) // An Item has been deleted to this view, let's tell the ViewModel
+    func onDoneItem(id: String)
 }
 
 
@@ -72,17 +73,24 @@ extension BristolViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let item = viewModel?.items[indexPath.row]
+        var menuActionsList: [UIContextualAction] = []
         
-        
-        let deleteAction = UIContextualAction(style: .normal, title: "Remove") { (contextAction, view, success) in
-            // ******** BACKGROUND THREAD *******
-            DispatchQueue.global(qos: .background).async {
-                self.viewModel?.onDeleteItem(id: (item?.id)!)
+        _ = item?.menuItems?.map({ menuItem in
+            let menuAction = UIContextualAction(style: .normal, title: menuItem.title!) { (contextAction, view, success: (Bool) -> (Void)) in
+                
+                if let delegate = menuItem as? BristolMenuItemViewModelDelegate {
+                    // ******** BACKGROUND THREAD *******
+                    DispatchQueue.global(qos: .background).async {
+                        delegate.onMenuItemSelected()
+                    }
+                }
+                success(true)
             }
-            success(true)
-        }
-        deleteAction.backgroundColor = .red
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+            menuAction.backgroundColor = menuItem.backColour?.hexColor
+            menuActionsList.append(menuAction)
+        })
+        
+        return UISwipeActionsConfiguration(actions: menuActionsList)
     }
 }
 

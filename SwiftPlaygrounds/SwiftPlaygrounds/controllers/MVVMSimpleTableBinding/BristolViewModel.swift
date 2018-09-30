@@ -33,9 +33,9 @@ class BristolViewModel {
     
     init(delegate: BristolViewModelProtocol) {
         self.delegate = delegate
-        let item1 = BristolItemViewModel(textValue: "Washing socks on Sunday", id: "1")
-        let item2 = BristolItemViewModel(textValue: "Walking on a Dream", id: "2")
-        let item3 = BristolItemViewModel(textValue: "Going abroad", id: "3")
+        let item1 = BristolItemViewModel(textValue: "Washing socks on Sunday", id: "1",parentViewModel: self)
+        let item2 = BristolItemViewModel(textValue: "Walking on a Dream", id: "2",parentViewModel: self)
+        let item3 = BristolItemViewModel(textValue: "Going abroad", id: "3",parentViewModel: self)
         
         items.append(contentsOf: [item1, item2, item3])
     }
@@ -53,7 +53,7 @@ extension BristolViewModel: BristolViewDelegate {
     func onAddItem() {
         guard let newValue = newBristolItem else{ return }
         print("New Bristol Value received in View Model: \(newValue)")
-        let newItem = BristolItemViewModel(textValue: newValue, id: "\(items.count + 1)")
+        let newItem = BristolItemViewModel(textValue: newValue, id: "\(items.count + 1)", parentViewModel: self)
         self.items.append(newItem)
         self.newBristolItem = ""
         self.delegate?.newItemAddedToViewModel()
@@ -64,5 +64,10 @@ extension BristolViewModel: BristolViewDelegate {
         self.items.remove(at: index)
         self.delegate?.itemRemoveFromViewModel(at: index)
     }
+    
+    func onDoneItem(id: String) {
+        print("Bristol received onDoneItem!!!")
+    }
+    
 }
 
