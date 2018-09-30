@@ -8,13 +8,32 @@
 
 import UIKit
 
+
+//    ╦  ╦┬┌─┐┬ ┬  ╔╦╗┌─┐┬  ┌─┐┌─┐┌─┐┌┬┐┌─┐
+//    ╚╗╔╝│├┤ │││   ║║├┤ │  ├┤ │ ┬├─┤ │ ├┤
+//     ╚╝ ┴└─┘└┴┘  ═╩╝└─┘┴─┘└─┘└─┘┴ ┴ ┴ └─┘
+
+
+
+protocol BristolViewDelegate {
+    func onAddItem() // An Item has been added to this view, let's tell the ViewModel
+    func onDeleteItem(id: String) // An Item has been deleted to this view, let's tell the ViewModel
+}
+
+
+
+
+//    ╦  ╦┬┌─┐┬ ┬
+//    ╚╗╔╝│├┤ │││
+//     ╚╝ ┴└─┘└┴┘
+
+
 class BristolViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
     
     private var viewModel: BristolViewModel?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +49,17 @@ class BristolViewController: UIViewController {
             return
         }
         viewModel?.newBristolItem = text
-        viewModel?.onAddItem()
+        // ******** BACKGROUND THREAD *******
+        DispatchQueue.global(qos: .background).async {
+            self.viewModel?.onAddItem()
+        }
     }
 }
 
 
+//    ╔═╗┌─┐┬─┐┌─┐┬┌─┐┌┐┌  ╔╦╗┌─┐┬  ┌─┐┌─┐┌─┐┌┬┐┌─┐┌─┐
+//    ╠╣ │ │├┬┘├┤ ││ ┬│││   ║║├┤ │  ├┤ │ ┬├─┤ │ ├┤ └─┐
+//    ╚  └─┘┴└─└─┘┴└─┘┘└┘  ═╩╝└─┘┴─┘└─┘└─┘┴ ┴ ┴ └─┘└─┘
 
 
 extension BristolViewController: UITableViewDelegate {
@@ -42,6 +67,22 @@ extension BristolViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemSelected = viewModel?.items[indexPath.row]
         (itemSelected as? BristolItemViewModelDelegate)?.onBristolItemSelected()
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let item = viewModel?.items[indexPath.row]
+        
+        
+        let deleteAction = UIContextualAction(style: .normal, title: "Remove") { (contextAction, view, success) in
+            // ******** BACKGROUND THREAD *******
+            DispatchQueue.global(qos: .background).async {
+                self.viewModel?.onDeleteItem(id: (item?.id)!)
+            }
+            success(true)
+        }
+        deleteAction.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 
@@ -63,11 +104,26 @@ extension BristolViewController: UITableViewDataSource {
 
 
 extension BristolViewController: BristolViewModelProtocol {
-    func reloadTableView() {
+    
+    func newItemAddedToViewModel() {
         guard let items = viewModel?.items else { return }
-        textField.text = viewModel?.newBristolItem
-        tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: items.count - 1, section: 0)], with: .automatic)
-        tableView.endUpdates()
+        
+        // ******** MAIN THREAD *******
+        DispatchQueue.main.sync(execute: { () -> Void in
+            self.textField.text = self.viewModel?.newBristolItem
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: [IndexPath(row: items.count - 1, section: 0)], with: .automatic)
+            self.tableView.endUpdates()
+        })
+    }
+    
+    func itemRemoveFromViewModel(at index: Int   ) {
+        // ******** MAIN THREAD *******
+        DispatchQueue.main.sync(execute: { () -> Void in
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            tableView.endUpdates()
+        })
+        
     }
 }

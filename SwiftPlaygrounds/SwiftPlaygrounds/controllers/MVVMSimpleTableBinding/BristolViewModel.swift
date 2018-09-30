@@ -8,45 +8,22 @@
 
 import Foundation
 
-// Data Items
-protocol BristolItemPresentable {
-    var textValue: String? { get }
-    var id: String? { get }
-}
-
-struct BristolItemViewModel: BristolItemPresentable {
-    var textValue: String?
-    var id: String? = "0"
-}
-
-protocol BristolItemViewModelDelegate {
-    func onBristolItemSelected()
-}
-
-extension BristolItemViewModel: BristolItemViewModelDelegate {
-    func onBristolItemSelected() {
-        print("Item with id: \(id!) has been selected!!")
-    }
-}
 
 
+//    ╦  ╦┬┌─┐┬ ┬╔╦╗┌─┐┌┬┐┌─┐┬    ╔╦╗┌─┐┬  ┌─┐┌─┐┌─┐┌┬┐┌─┐
+//    ╚╗╔╝│├┤ │││║║║│ │ ││├┤ │     ║║├┤ │  ├┤ │ ┬├─┤ │ ├┤
+//     ╚╝ ┴└─┘└┴┘╩ ╩└─┘─┴┘└─┘┴─┘  ═╩╝└─┘┴─┘└─┘└─┘┴ ┴ ┴ └─┘
 
 
-
-
-
-
-
-
-
-
-
-protocol BristolViewDelegate {
-    func onAddItem()
-}
 protocol BristolViewModelProtocol: class {
-    func reloadTableView()
+    func newItemAddedToViewModel() // An Item has been added to this ViewModel, let's tell the View so the UI gets updated
+    func itemRemoveFromViewModel(at index: Int) // An Item has been removed from this ViewModel, let's tell the View so the UI gets updated
 }
+
+
+//    ╦  ╦┬┌─┐┬ ┬╔╦╗┌─┐┌┬┐┌─┐┬
+//    ╚╗╔╝│├┤ │││║║║│ │ ││├┤ │
+//     ╚╝ ┴└─┘└┴┘╩ ╩└─┘─┴┘└─┘┴─┘
 
 
 class BristolViewModel {
@@ -66,13 +43,26 @@ class BristolViewModel {
 
 
 
+//    ╔═╗┌─┐┬─┐┌─┐┬┌─┐┌┐┌  ╔╦╗┌─┐┬  ┌─┐┌─┐┌─┐┌┬┐┌─┐┌─┐
+//    ╠╣ │ │├┬┘├┤ ││ ┬│││   ║║├┤ │  ├┤ │ ┬├─┤ │ ├┤ └─┐
+//    ╚  └─┘┴└─└─┘┴└─┘┘└┘  ═╩╝└─┘┴─┘└─┘└─┘┴ ┴ ┴ └─┘└─┘
+
+
 extension BristolViewModel: BristolViewDelegate {
+    
     func onAddItem() {
         guard let newValue = newBristolItem else{ return }
         print("New Bristol Value received in View Model: \(newValue)")
         let newItem = BristolItemViewModel(textValue: newValue, id: "\(items.count + 1)")
         self.items.append(newItem)
         self.newBristolItem = ""
-        self.delegate?.reloadTableView()
+        self.delegate?.newItemAddedToViewModel()
+    }
+    
+    func onDeleteItem(id: String) {
+        guard let index = self.items.lastIndex(where: { $0.id == id }) else { return }
+        self.items.remove(at: index)
+        self.delegate?.itemRemoveFromViewModel(at: index)
     }
 }
+
